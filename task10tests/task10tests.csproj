@@ -24,4 +24,10 @@
     <ProjectReference Include="..\task10\task10.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestData\TestPlugin.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
