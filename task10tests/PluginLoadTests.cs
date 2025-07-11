@@ -28,7 +28,7 @@ public class PluginLoadTests
         var string_writer = new StringWriter();
         Console.SetOut(string_writer);
 
-        var loader = new PluginLoader(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\.."));
+        var loader = new PluginLoader(Directory.GetCurrentDirectory());
         loader.FindPlugins();
 
         var output = string_writer.ToString();
