@@ -28,7 +28,9 @@ public class PluginLoadTests
         var string_writer = new StringWriter();
         Console.SetOut(string_writer);
 
-        var loader = new PluginLoader(Directory.GetCurrentDirectory());
+        var test_path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "TestData");
+
+        var loader = new PluginLoader(test_path);
         loader.FindPlugins();
 
         var output = string_writer.ToString();
@@ -41,7 +43,9 @@ public class PluginLoadTests
         var string_writer = new StringWriter();
         Console.SetOut(string_writer);
 
-        var loader = new PluginLoader(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\.."));
+        var test_path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "TestData");
+
+        var loader = new PluginLoader(test_path);
         loader.FindPlugins();
 
         var output = string_writer.ToString().Split(Environment.NewLine);
