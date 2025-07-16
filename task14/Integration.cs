@@ -7,26 +7,31 @@ public class DefiniteIntegral
     private static object lockObj = new object();
     public static double Solve(double a, double b, Func<double, double> function, double step, int threadsnumber)
     {
-        int intervals = (int)Math.Ceiling((b - a) / step);
-        double thread_intervals = (b - a) / threadsnumber;
-        Barrier barrier = new Barrier(threadsnumber + 1);
+        double totalResult = 0;
 
-        double result = 0;
+        double interval = (b - a) / threadsnumber;
 
-        for (int i = 0; i < threadsnumber; i++)
+        int totalIntervals = (int)Math.Ceiling((b - a) / step);
+        int intervalsPerThread = totalIntervals / threadsnumber;
+
+        Parallel.For(0, threadsnumber, i =>
         {
-            double int_start = a + i * thread_intervals;
-            double int_end = (i == threadsnumber - 1) ? b : int_start + thread_intervals;
+            double start = a + i * intervalsPerThread * step;
+            double end = (i == threadsnumber - 1) ? b : start + intervalsPerThread * step;
 
-            new Thread(() =>
+            double partResult = 0;
+            for (double j = start; j < end; j += step)
             {
-                double res = Integrate(int_start, int_end, function, step);
-                lock (lockObj) { result += res; }
-                barrier.SignalAndWait();
-            }).Start();
-        }
-        barrier.SignalAndWait();
-        return result;
+                double int_end = Math.Min(j + step, end);
+                partResult += (function(j) + function(int_end)) / 2 * (int_end - j);
+            }
+            lock (lockObj)
+            {
+                totalResult += partResult;
+            }
+        });
+        
+        return totalResult;
     }
 
     public static double Integrate(double a, double b, Func<double, double> function, double step)
