@@ -1,0 +1,5 @@
+minimal appropriate step: 0,1
+ optimal threads quantity: 8
+ single thread time: 0,04788
+ multi-thread time: 0,017310000000000002
+ optimization percent: 176,6031195840554
