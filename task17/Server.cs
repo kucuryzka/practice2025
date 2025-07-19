@@ -45,7 +45,7 @@ public class ServerThread
                 continue;
             }
 
-            if (scheduler!.HasCommand())
+            if (scheduler != null && scheduler.HasCommand())
             {
                 var cmd = scheduler.Select();
                 cmd.Execute();
