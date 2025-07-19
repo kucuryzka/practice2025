@@ -1,0 +1,15 @@
+command number: 1
+ average performance time: 63
+
+command number: 2
+ average performance time: 61
+
+command number: 3
+ average performance time: 60
+
+command number: 4
+ average performance time: 63
+
+command number: 5
+ average performance time: 50
+

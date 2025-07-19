@@ -1,0 +1,2 @@
+Command quantity: 5, every command was called 3 times
+ Total execution time: 741
