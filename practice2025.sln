@@ -9,8 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task17tests", "task17tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task18", "task18\task18.csproj", "{32C2A6CB-BE5F-4700-8587-DC7971E7EC89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task18tests", "task18tests\task18tests.csproj", "{428B1DE6-904F-4956-B39A-5D11B05522A1}"
-EndProject
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerCommands", "ServerCommands\ServerCommands.csproj", "{3E802F31-314E-49CE-ADF4-0295305037B6}"
 EndProject
 Global
