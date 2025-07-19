@@ -7,7 +7,7 @@ namespace task18;
 
 public class Program
 {
-    public void Main(string[] args)
+    public static void Main(string[] args)
     {
         var scheduler = new Scheduler();
         var server = new ServerThread(scheduler);
